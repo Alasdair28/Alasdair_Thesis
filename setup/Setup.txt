@@ -17,7 +17,7 @@ exit
 # NOTE: ROS_IP must be the same in baxter.sh and in bash.rc
 
 
-cd ~/ws_AF 	
+cd ~/Alasdair_Thesis/ws_AF 	
 source /opt/ros/noetic/setup.bash
 catkin_make
 . baxter.sh
@@ -74,6 +74,12 @@ rosrun baxter_interface joint_trajectory_action_server.py
 source install/setup.bash
 roslaunch baxter_moveit_config demo_baxter.launch
 
+*** new terminal
+cd ~/Alasdair_Thesis
+git commit -m "<enter message>"
+git push --set-upstream origin master
+username: Alasdair28
+password: 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
 
 ***NOTES
 <!--  <xacro:include filename="$(find robotiq)/robotiq_2f_85_gripper_visualization/urdf/robotiq_arg2f_85_model.xacro" /> -->
