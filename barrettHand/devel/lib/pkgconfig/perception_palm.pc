@@ -1,0 +1,8 @@
+prefix=/home/baxter/Alasdair_Thesis/barrettHand/devel
+
+Name: perception_palm
+Description: Description of perception_palm
+Version: 0.0.0
+Cflags: -I/home/baxter/Alasdair_Thesis/barrettHand/src/barrett-ros-pkg/perception_palm/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime wam_msgs wam_srvs

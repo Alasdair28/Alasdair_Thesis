@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: rqt_bhand
+Version: 0.1.2
+Summary: The rqt_bhand package is intended to test the Barrett Hand in graphical mode
+Home-page: http://ros.org/wiki/rqt_bhand
+Author: Román Navarro <rnavarro@robotnik.es>, Jorge Ariño <jarino@robotnik.es>
+Author-email: UNKNOWN
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN

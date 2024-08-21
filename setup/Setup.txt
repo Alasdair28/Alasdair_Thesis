@@ -1,0 +1,82 @@
+Alasdair Setup Notes for Baxter
+--- Legend ----
+*** means an action
+# is a comment
+
+
+env | grep ROS_MASTER_URI
+ping 011406P0001.local
+	^ctrl C
+ssh ruser@011406P0001.local
+	Password: rethink
+ping 10.128.48.194
+ping 10.128.39.169
+	^ctrl C
+exit
+
+# NOTE: ROS_IP must be the same in baxter.sh and in bash.rc
+
+
+cd ~/ws_AF 	
+source /opt/ros/noetic/setup.bash
+catkin_make
+. baxter.sh
+rosrun baxter_tools enable_robot.py -e
+rosrun baxter_tools tuck_arms.py -u
+
+*** new terminal
+(IN .bashrc so ignore)source /opt/ros/noetic/setup.bash
+rosrun <folder in src> <file in folder (.py)>
+. devel/setup.bash
+roslaunch <folder in src> <launch file (.launch)>
+
+
+Minion Face
+*** new terminal
+source /opt/ros/noetic/setup.bash
+. baxter.sh
+rosrun baxter_examples xdisplay_image.py --file=/home/baxter/Alasdair_Thesis/ws_AF/src/baxter_examples/share/images/minion_face.png
+
+BH8-282 GRIPPER
+*** new terminal
+cd ~/Alasdair_Thesis/barrettHand/
+. devel/setup.bash
+roslaunch barrett_hand_node barrett_hand_node.launch
+*** new terminal
+source /opt/ros/noetic/setup.bash
+catkin_make
+. baxter.sh
+. devel/setup.bash
+rosservice call /bhand/initialize
+rosservice call /bhand/open_grasp
+rosservice call /bhand/close_grasp
+
+2F-85 Gripper
+*** new terminal
+# . devel/setup.bash
+dmesg | grep tty 	(ttyUSB0)
+sudo chmod 777 /dev/ttyUSB0 .
+rosrun robotiq_2f_gripper_control Robotiq2FGripperRtuNode.py /dev/ttyUSB0
+*** new terminal ***
+# . devel/setup.bash
+rosrun robotiq_2f_gripper_control Robotiq2FGripperSimpleController.py
+*** new terminal
+# . devel/setup.bash
+rosrun robotiq_2f_gripper_control Robotiq2FGripperStatusListener.py
+
+MOVEIT!
+*** new terminal
+rosrun baxter_tools enable_robot.py -e
+rosrun baxter_interface joint_trajectory_action_server.py
+
+*** new terminal
+. baxter.sh
+source install/setup.bash
+roslaunch baxter_moveit_config demo_baxter.launch
+
+
+***NOTES
+<!--  <xacro:include filename="$(find robotiq)/robotiq_2f_85_gripper_visualization/urdf/robotiq_arg2f_85_model.xacro" /> -->
+
+
+inet 10.128.14.128  netmask 255.255.0.0

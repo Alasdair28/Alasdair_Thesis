@@ -1,0 +1,8 @@
+prefix=/home/baxter/Alasdair_Thesis/barrettHand/devel
+
+Name: wam_teleop
+Description: Description of wam_teleop
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs roscpp rospy sensor_msgs std_srvs wam_msgs wam_srvs

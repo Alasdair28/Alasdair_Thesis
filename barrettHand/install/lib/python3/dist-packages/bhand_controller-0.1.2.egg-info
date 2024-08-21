@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: bhand_controller
+Version: 0.1.2
+Summary: The bhand_controller package is intended to control the Barrett Hand
+Home-page: http://wiki.ros.org/bhand_controller
+Author: Román Navarro <rnavarro@robotnik.es>, Jorge Ariño <jarino@robotnik.es>
+Author-email: UNKNOWN
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN

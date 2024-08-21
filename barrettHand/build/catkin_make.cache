@@ -1,0 +1,2 @@
+barrett-ros-pkg/barrett_hand_node:barrett-ros-pkg/perception_palm:barrett-ros-pkg/wam_demos:barrett-ros-pkg/wam_msgs:barrett-ros-pkg/wam_node:barrett-ros-pkg/wam_srvs:barrett-ros-pkg/wam_teleop:barrett_hand-kinetic-devel/barrett_hand:barrett_hand-kinetic-devel/bhand_controller:barrett_hand-kinetic-devel/rqt_bhand
+-DCATKIN_DEVEL_PREFIX=/home/baxter/Alasdair_Thesis/barrettHand/devel -DCMAKE_INSTALL_PREFIX=/home/baxter/Alasdair_Thesis/barrettHand/install -G Unix Makefiles
