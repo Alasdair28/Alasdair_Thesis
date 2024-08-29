@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot name="left_end_effector" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <!-- Include the Robotiq 2F-85 gripper Xacro file -->
+  <!-- <xacro:include filename="$(find rethink_ee_description)/urdf/electric_gripper/rethink_electric_gripper.xacro" /> -->
+  <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
+  
+  <!-- <xacro:rethink_electric_gripper side="left"
+                                  l_finger="extended_narrow"
+                                  l_finger_slot="2"
+                                  l_finger_tip="paddle_tip"
+                                  l_finger_grasp="inner"
+                                  r_finger="extended_narrow"
+                                  r_finger_slot="2"
+                                  r_finger_tip="paddle_tip"
+                                  r_finger_grasp="inner"/> -->
+
+  <!-- Define the Robotiq 2F-85 gripper components -->
+  <xacro:robotiq_arg2f_base_link prefix="left_" />
+  <xacro:finger_links prefix="left_" fingerprefix="left_finger" stroke="0.085" />
+  <xacro:finger_joints prefix="left_" fingerprefix="left_finger" reflect="0" />
+</robot>
