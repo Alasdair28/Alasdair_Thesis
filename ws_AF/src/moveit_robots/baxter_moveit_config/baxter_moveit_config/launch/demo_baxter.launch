@@ -12,13 +12,9 @@
   <arg name="right_electric_gripper" default="false"/>
   <arg name="left_electric_gripper" default="false"/>
 
-  <!-- Set the kinematic tips for the left_arm and right_arm move_groups -->
-  <!--<arg name="left_tip_name" default="robotiq_arg2f_85"/>
-  <arg name="right_tip_name" default="right_gripper"/> -->
-
   <!-- NEW STUFF -->
   <!-- Set the kinematic tips for the left_arm and right_arm move_groups -->
-  <arg name="left_tip_name" default="robotiq_arg2f_85_base_link"/>
+  <arg name="left_tip_name" default="left_gripper"/>
   <arg name="right_tip_name" default="right_gripper"/>
 
   <!-- Load the Robotiq gripper launch -->

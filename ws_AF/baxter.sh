@@ -23,9 +23,11 @@ baxter_hostname="011406P0001.local"
 
 # Set *Either* your computers ip address or hostname. Please note if using
 # your_hostname that this must be resolvable to Baxter.
-your_ip="10.128.57.5"
-# your_ip="134.7.44.2"
-#your_hostname="my_computer.local"
+# your_ip="10.128.57.5"
+your_ip="10.128.62.185"
+# your_ip="10.128.59.205"
+
+#your_hostname="baxter-ideacentre-Y900-34ISZ"
 
 # Specify ROS distribution (e.g. indigo, hydro, etc.)
 ros_version="noetic"

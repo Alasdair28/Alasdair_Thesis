@@ -18,9 +18,19 @@
     <disable_collisions link1="${side}_gripper" link2="${gripper_side}_gripper_r_finger" reason="Default" />
     <disable_collisions link1="${side}_gripper" link2="${gripper_side}_gripper_r_finger_tip" reason="Never" />
 
-    <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${gripper_side}_gripper_l_finger_tip" reason="Adjacent" />
+    <!-- Between links -->
+    <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${gripper_side}_gripper_r_finger_tip" reason="Adjacent" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${gripper_side}_gripper_r_finger" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${gripper_side}_gripper_r_finger_tip" reason="Never" />
+    <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${gripper_side}_gripper_r_finger" reason="Never" />
+
+    <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${gripper_side}_gripper_r_finger_tip" reason="Adjacent" />
+    <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${gripper_side}_gripper_r_finger_tip" reason="Never" />
+    <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${gripper_side}_gripper_l_finger_tip" reason="Never" />
+    <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${gripper_side}_gripper_r_finger_tip" reason="Never" />
+
+
+    <!-- l -->
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${side}_hand" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${side}_hand_accelerometer" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${side}_hand_camera" reason="Never" />
@@ -30,7 +40,7 @@
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${side}_upper_forearm" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${side}_upper_forearm_visual" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${side}_wrist" reason="Never" />
-    <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${gripper_side}_gripper_r_finger" reason="Never" />
+
     <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${side}_hand" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${side}_hand_accelerometer" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${side}_hand_camera" reason="Never" />
@@ -42,7 +52,7 @@
     <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${side}_upper_forearm_visual" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${side}_wrist" reason="Never" />
 
-    <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${gripper_side}_gripper_r_finger_tip" reason="Adjacent" />
+    <!-- r -->
     <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${side}_hand" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${side}_hand_accelerometer" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${side}_hand_camera" reason="Never" />
@@ -52,6 +62,7 @@
     <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${side}_upper_forearm" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${side}_upper_forearm_visual" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${side}_wrist" reason="Never" />
+
     <disable_collisions link1="${gripper_side}_gripper_r_finger_tip" link2="${side}_hand" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_r_finger_tip" link2="${side}_hand_accelerometer" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_r_finger_tip" link2="${side}_hand_camera" reason="Never" />
@@ -63,29 +74,6 @@
     <disable_collisions link1="${gripper_side}_gripper_r_finger_tip" link2="${side}_upper_forearm_visual" reason="Never" />
     <disable_collisions link1="${gripper_side}_gripper_r_finger_tip" link2="${side}_wrist" reason="Never" />
 
-    <disable_collisions link1="${gripper_side}_gripper_l_finger_tip" link2="${gripper_side}_gripper_r_finger_tip" reason="Never" />
-    <disable_collisions link1="${gripper_side}_gripper_l_finger" link2="${gripper_side}_gripper_l_finger_tip" reason="Never" />
-    <disable_collisions link1="${gripper_side}_gripper_r_finger" link2="${gripper_side}_gripper_r_finger_tip" reason="Never" />
     </xacro:macro>
 
-    <!-- New Macro for Robotiq 2-Finger Gripper (Left) -->
-    <xacro:macro name="robotiq_2f_gripper" params="side">
-        <xacro:property name="gripper_side" value="${side[0]}" scope="local"/>
-        
-        <!-- Add specific disable_collisions for the Robotiq 2F-85 Gripper -->
-        <disable_collisions link1="${side}_gripper_base" link2="${gripper_side}_gripper_finger_1" reason="Adjacent" />
-        <disable_collisions link1="${side}_gripper_base" link2="${gripper_side}_gripper_finger_2" reason="Adjacent" />
-        <disable_collisions link1="${side}_gripper_finger_1" link2="${gripper_side}_gripper_finger_2" reason="Adjacent" />
-        <disable_collisions link1="${gripper_side}_gripper_finger_1" link2="${side}_hand" reason="Never" />
-        <disable_collisions link1="${gripper_side}_gripper_finger_2" link2="${side}_hand" reason="Never" />
-        <!-- Add more disable_collisions as needed based on the robot's configuration -->
-    </xacro:macro>
-
-    <!-- Delete the below if it gives errors -->
-    <xacro:if value="$(arg left_gripper_is_robotiq)">
-        <xacro:robotiq_2f_gripper side="left"/>
-    </xacro:if>
-    
-    <!-- Keep the original macro for the right side (if needed) -->
-    <xacro:rethink_electric_gripper side="right"/>
 </robot>

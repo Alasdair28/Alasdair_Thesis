@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rethink_electric_gripper">
+  
   <xacro:macro name="rethink_electric_gripper" params="side r_finger r_finger_slot r_finger_tip r_finger_grasp l_finger l_finger_slot l_finger_tip l_finger_grasp">
     <xacro:property name="gripper_side" value="${side[0]}" scope="local"/>
     <!-- Base of end effector -->

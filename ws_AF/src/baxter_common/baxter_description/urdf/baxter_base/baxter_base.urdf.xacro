@@ -5,6 +5,7 @@
     <!-- Gazebo Tags -->
     <xacro:include filename="$(find baxter_description)/urdf/baxter_base/baxter_base.gazebo.xacro" />
   </xacro:if>
+  
   <link name="base">
   </link>
   <link name="torso">
@@ -511,7 +512,6 @@
     <parent link="torso"/>
     <child link="right_arm_mount"/>
   </joint>
-  <!--
   <joint name="right_s0" type="revolute">
     <origin rpy="0 0 0" xyz="0.055695 0 0.011038"/>
     <axis xyz="0 0 1"/>
@@ -585,7 +585,7 @@
     <child link="right_wrist"/>
     <limit effort="15.0" lower="-3.059" upper="3.059" velocity="4.0"/>
     <dynamics damping="0.7" friction="0.0"/>
-  </joint> -->
+  </joint>
   <joint name="right_hand" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.11355"/>
     <axis xyz="0 0 1"/>
@@ -880,7 +880,6 @@
     <parent link="torso"/>
     <child link="left_arm_mount"/>
   </joint>
-  <!--
   <joint name="left_s0" type="revolute">
     <origin rpy="0 0 0" xyz="0.055695 0 0.011038"/>
     <axis xyz="0 0 1"/>
@@ -954,7 +953,7 @@
     <child link="left_wrist"/>
     <limit effort="15.0" lower="-3.059" upper="3.059" velocity="4.0"/>
     <dynamics damping="0.7" friction="0.0"/>
-  </joint> -->
+  </joint> 
   <joint name="left_hand" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.11355"/>
     <axis xyz="0 0 1"/>

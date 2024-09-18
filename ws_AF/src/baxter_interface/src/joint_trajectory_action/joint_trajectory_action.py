@@ -83,6 +83,7 @@ class JointTrajectoryActionServer(object):
 
         # Controller parameters from arguments, messages, and dynamic reconfigure
         self._control_rate = rate  # Hz
+        self._control_rate = int(self._control_rate)
         self._control_joints = []
         self._pid_gains = {'kp': dict(), 'ki': dict(), 'kd': dict()}
         self._goal_time = 0.0
@@ -96,12 +97,15 @@ class JointTrajectoryActionServer(object):
         # Create our spline coefficients
         self._coeff = [None] * len(self._limb.joint_names())
 
+        if 0 <= self._control_rate <= 65535:
         # Set joint state publishing to specified control rate
-        self._pub_rate = rospy.Publisher(
-            '/robot/joint_state_publish_rate',
-            UInt16,
-            queue_size=10)
-        self._pub_rate.publish(self._control_rate)
+            self._pub_rate = rospy.Publisher(
+                '/robot/joint_state_publish_rate',
+                UInt16,
+                queue_size=10)
+            self._pub_rate.publish(self._control_rate)
+        else:
+            rospy.logerr("Control rate must be between 0 and 65535")
 
         self._pub_ff_cmd = rospy.Publisher(
             self._ns + '/inverse_dynamics_command',

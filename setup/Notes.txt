@@ -1,0 +1,15 @@
+Changes made
+
+CHANGED TO REMOVE ATTEMPTS
+LOCATION: /home/baxter/Alasdair_Thesis/ws_AF/src/moveit_robots/baxter_moveit_config/baxter_moveit_config/config/kinematics.yaml
+
+CHANGED: Commented out kinematics_solver_attempts: 3" for both left and right arm
+Sep 4th 
+
+
+CHANGED NAME
+baxter.srdf.xacro -> baxter.srdf
+This is so it could be loaded for the moveit setup assistant
+
+
+Recently changed this 'robotiq_arg2f_85' to 'left_gripper'
