@@ -7,27 +7,13 @@
 
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
   <arg name="load_robot_description" default="false"/>
-
   <!-- Left and right electric gripper params. Set to true to check for collisions for their links -->
   <arg name="right_electric_gripper" default="false"/>
   <arg name="left_electric_gripper" default="false"/>
-
-  <!-- NEW STUFF -->
   <!-- Set the kinematic tips for the left_arm and right_arm move_groups -->
   <arg name="left_tip_name" default="left_gripper"/>
   <arg name="right_tip_name" default="right_gripper"/>
-
-  <!-- Load the Robotiq gripper launch -->
-  <!-- <param name="robot_description" command="roslaunch $(find robotiq_2f_85_gripper_visualization)/launch/test_2f_85_model.launch"/> -->
   
-  <!-- Include the Robotiq gripper URDF/Xacro -->
-  <!-- This isnt calling a launch file, redundant-->
-  <!--<include file="$(find robotiq)/launch/robotiq_2f_gripper.launch">
-    <arg name="left_gripper" value="true"/>
-  </include> -->
-
-  <!-- OLD STUFF -->
-  <!-- Baxter MoveIt Planning Context -->
   <include file="$(find baxter_moveit_config)/launch/planning_context.launch">
     <arg name="load_robot_description" value="$(arg load_robot_description)"/>
     <arg name="left_electric_gripper" value="$(arg left_electric_gripper)"/>
@@ -36,7 +22,6 @@
     <arg name="right_tip_name" value="$(arg right_tip_name)"/>
   </include>
 
-  <!-- Kinect and Xtion support -->
   <arg name="kinect" default="false" />
   <arg name="xtion" default="false" />
   <arg name="camera_link_pose" default="0.15 0.075 0.5 0.0 0.7854 0.0"/>

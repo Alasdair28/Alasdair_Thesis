@@ -117,6 +117,12 @@
                 <color rgba="0 0 0 1" />
             </material>
         </visual>
+        <collision>
+            <origin rpy="0.2617993877991494 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size="0.218 0.16 0.001" />
+            </geometry>
+        </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.0001" />
@@ -459,6 +465,12 @@
                 <color rgba="0 0 1 0.8" />
             </material>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.02" />
+            </geometry>
+        </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.0001" />
@@ -482,6 +494,12 @@
                 <color rgba="0 0 1 0.8" />
             </material>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size="0.005 .02 .005" />
+            </geometry>
+        </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.0001" />
@@ -498,6 +516,12 @@
                 <color rgba="0 0 0 1" />
             </material>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000" />
             <mass value="0.0001" />
@@ -827,6 +851,12 @@
                 <color rgba="0 0 1 0.8" />
             </material>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <cylinder length="0.01" radius="0.02" />
+            </geometry>
+        </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.0001" />
@@ -850,6 +880,12 @@
                 <color rgba="0 0 1 0.8" />
             </material>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size="0.005 0.02 0.005" />
+            </geometry>
+        </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <mass value="0.0001" />
@@ -866,6 +902,12 @@
                 <color rgba="0 0 0 1" />
             </material>
         </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000" />
             <mass value="0.0001" />
@@ -1004,7 +1046,8 @@
         <parent link="torso" />
         <child link="pedestal" />
     </joint>
-    <link name="robotiq_arg2f_base_link">
+    <link name="left_gripper">
+        <!-- OLD: ${prefix}robotiq_arg2f_base_link -->
         <inertial>
             <origin rpy="0 0 0" xyz="8.625E-08 -4.6583E-06 0.03145" />
             <mass value="0.22652" />
@@ -1032,7 +1075,8 @@
         <axis xyz="0 0 1" />
         <parent link="left_hand" />
         <!-- Replace with the actual Baxter end effector link name -->
-        <child link="robotiq_arg2f_base_link" />
+        <child link="left_gripper" />
+        <!-- changed with new name -->
     </joint>
     <link name="left_outer_knuckle">
         <!--<inertial>
@@ -1302,7 +1346,8 @@
     </link>
     <joint name="finger_joint" type="revolute">
         <origin rpy="0 0 3.141592653589793" xyz="0 -0.0306011 0.054904" />
-        <parent link="robotiq_arg2f_base_link" />
+        <parent link="left_gripper" />
+        <!-- changed with name change for base-->
         <child link="left_outer_knuckle" />
         <axis xyz="1 0 0" />
         <limit effort="1000" lower="0" upper="0.8" velocity="2.0" />
@@ -1316,7 +1361,8 @@
     <joint name="left_inner_knuckle_joint" type="revolute">
         <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
         <origin rpy="0 0 3.141592653589793" xyz="0 -0.0127 0.06142" />
-        <parent link="robotiq_arg2f_base_link" />
+        <parent link="left_gripper" />
+        <!-- changed with name change-->
         <child link="left_inner_knuckle" />
         <axis xyz="1 0 0" />
         <limit effort="1000" lower="0" upper="0.8757" velocity="2.0" />
@@ -1338,7 +1384,8 @@
     </joint>
     <joint name="right_outer_knuckle_joint" type="revolute">
         <origin rpy="0 0 0" xyz="0 0.0306011 0.054904" />
-        <parent link="robotiq_arg2f_base_link" />
+        <parent link="left_gripper" />
+        <!-- changed with base name change -->
         <child link="right_outer_knuckle" />
         <axis xyz="1 0 0" />
         <limit effort="1000" lower="0" upper="0.81" velocity="2.0" />
@@ -1353,7 +1400,8 @@
     <joint name="right_inner_knuckle_joint" type="revolute">
         <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
         <origin rpy="0 0 0.0" xyz="0 0.0127 0.06142" />
-        <parent link="robotiq_arg2f_base_link" />
+        <parent link="left_gripper" />
+        <!-- changed with name change-->
         <child link="right_inner_knuckle" />
         <axis xyz="1 0 0" />
         <limit effort="1000" lower="0" upper="0.8757" velocity="2.0" />

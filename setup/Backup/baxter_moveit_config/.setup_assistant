@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/baxter.srdf
   CONFIG:
-    author_name: Alasdair Fleming
-    author_email: alasdair.fleming@student.curtin.edu.au
-    generated_timestamp: 1726044461
+    author_name: Rethink Robotics Inc.
+    author_email: rsdk.support@rethinkrobotics.com
+    generated_timestamp: 1726717906

@@ -6,7 +6,7 @@
   <arg name="debug" default="false" />
 
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
-  <arg name="load_robot_description" default="true"/>
+  <arg name="load_robot_description" default="false"/>
 
   <!-- Left and right electric gripper params. Set to true to check for collisions for their links -->
   <arg name="right_electric_gripper" default="false"/>
@@ -16,15 +16,6 @@
   <!-- Set the kinematic tips for the left_arm and right_arm move_groups -->
   <arg name="left_tip_name" default="left_gripper"/>
   <arg name="right_tip_name" default="right_gripper"/>
-
-  <!-- Load the Robotiq gripper launch -->
-  <!-- <param name="robot_description" command="roslaunch $(find robotiq_2f_85_gripper_visualization)/launch/test_2f_85_model.launch"/> -->
-  
-  <!-- Include the Robotiq gripper URDF/Xacro -->
-  <!-- This isnt calling a launch file, redundant-->
-  <!--<include file="$(find robotiq)/launch/robotiq_2f_gripper.launch">
-    <arg name="left_gripper" value="true"/>
-  </include> -->
 
   <!-- OLD STUFF -->
   <!-- Baxter MoveIt Planning Context -->

@@ -90,10 +90,8 @@ xacro `rospack find baxter_moveit_config`/config/baxter.srdf.xacro left_electric
 ---
 
 . devel/setup.bash
+cd /home/baxter/Alasdair_Thesis/ws_AF/src/moveit_robots/baxter_moveit_config/baxter_moveit_config
 roslaunch moveit_setup_assistant setup_assistant.launch
-- The correct path to edit in the window
-/home/baxter/Alasdair_Thesis/ws_AF/src/moveit_robots/baxter_moveit_config/baxter_moveit_config
-
 
 
 
@@ -105,6 +103,7 @@ roslaunch robotiq_2f_gripper_control test_85mm_gripper.launch comport:="/dev/tty
 
 *** new terminal
 cd ~/Alasdair_Thesis
+git add --all
 git commit -m "<enter message>"
 git push --set-upstream origin <choose branch>
 username: Alasdair28
