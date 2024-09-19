@@ -4,6 +4,6 @@
   <!-- Include the Robotiq 2F-85 gripper Xacro file -->
   <xacro:include filename="$(find robotiq_2f_85_gripper_vis)/urdf/robotiq_arg2f_85_model_macro.xacro" />
   
-  <xacro:left_gripper prefix="" /> <!-- loads the model in -->
+  <xacro:left_gripper_base prefix="" /> <!-- loads the model in -->
   
 </robot>

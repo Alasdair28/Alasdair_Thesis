@@ -3,7 +3,7 @@
 
   <!-- Robotiq Gripper Base Link -->
   <xacro:macro name="robotiq_arg2f_base_link" params="prefix">
-    <link name="left_gripper"> <!-- OLD: ${prefix}robotiq_arg2f_base_link -->
+    <link name="left_gripper_base"> <!-- OLD: ${prefix}robotiq_arg2f_base_link -->
       <inertial>
         <origin xyz="8.625E-08 -4.6583E-06 0.03145" rpy="0 0 0" />
         <mass value="0.22652" />
@@ -25,13 +25,28 @@
         </geometry>
       </collision>
     </link>
-    <joint name="${prefix}robotiq_arg2f_base_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 0.11355"/>  <!-- Adjust if there is an offset between the gripper and Baxter's end effector -->
+    <joint name="left_gripper_base" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>  <!-- Adjust if there is an offset between the gripper and Baxter's end effector -->
       <axis xyz="0 0 1"/>
       <parent link="left_hand"/>  <!-- Replace with the actual Baxter end effector link name -->
-      <child link="left_gripper"/> <!-- changed with new name -->
-  </joint>
+      <child link="left_gripper_base"/> <!-- changed with new name -->
+  </joint> 
   </xacro:macro>
+
+  <!-- Electric Gripper Tip joint -->
+  <joint name="left_endpoint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 ${0.130324+0.02}"/> <!-- Value added from all z values manually-->
+    <parent link="left_gripper_base"/>
+    <child link="left_gripper"/>
+  </joint>
+  <!-- Electric Gripper Tip link -->
+  <link name="left_gripper">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.0001"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0.0"/>
+    </inertial>
+  </link>
 
   <xacro:macro name="finger_joints" params="prefix fingerprefix reflect">
     <xacro:outer_finger_joint prefix="${prefix}" fingerprefix="${fingerprefix}"/>

@@ -1047,7 +1047,21 @@
     <parent link="torso"/>
     <child link="pedestal"/>
   </joint>
+  <!-- Electric Gripper Tip joint -->
+  <joint name="left_endpoint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.15032399999999999"/>
+    <parent link="left_gripper_base"/>
+    <child link="left_gripper"/>
+  </joint>
+  <!-- Electric Gripper Tip link -->
   <link name="left_gripper">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.0001"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0.0"/>
+    </inertial>
+  </link>
+  <link name="left_gripper_base">
     <!-- OLD: ${prefix}robotiq_arg2f_base_link -->
     <inertial>
       <origin rpy="0 0 0" xyz="8.625E-08 -4.6583E-06 0.03145"/>
@@ -1070,13 +1084,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="robotiq_arg2f_base_joint" type="fixed">
-    <origin rpy="0 0 0.11355" xyz="0 0 0"/>
+  <joint name="left_gripper_base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <!-- Adjust if there is an offset between the gripper and Baxter's end effector -->
     <axis xyz="0 0 1"/>
     <parent link="left_hand"/>
     <!-- Replace with the actual Baxter end effector link name -->
-    <child link="left_gripper"/>
+    <child link="left_gripper_base"/>
     <!-- changed with new name -->
   </joint>
   <link name="left_outer_knuckle">
@@ -1295,9 +1309,48 @@
       </geometry>
     </collision>
   </link>
-  <joint name="finger_joint" type="revolute">
+  <joint name="right_outer_knuckle_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0.0306011 0.054904"/>
+    <parent link="left_gripper_base"/>
+    <!-- changed with base name change -->
+    <child link="right_outer_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="0" upper="0.81" velocity="2.0"/>
+    <mimic joint="left_outer_knuckle_joint" multiplier="1" offset="0"/>
+  </joint>
+  <joint name="right_outer_finger_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0315 -0.0041"/>
+    <parent link="right_outer_knuckle"/>
+    <child link="right_outer_finger"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  <joint name="right_inner_knuckle_joint" type="revolute">
+    <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
+    <origin rpy="0 0 0.0" xyz="0 0.0127 0.06142"/>
+    <parent link="left_gripper_base"/>
+    <!-- changed with name change-->
+    <child link="right_inner_knuckle"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="0" upper="0.8757" velocity="2.0"/>
+    <mimic joint="left_outer_knuckle_joint" multiplier="1" offset="0"/>
+  </joint>
+  <joint name="right_inner_finger_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>
+    <parent link="right_outer_finger"/>
+    <child link="right_inner_finger"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000" lower="0" upper="0.8757" velocity="2.0"/>
+    <mimic joint="left_outer_knuckle_joint" multiplier="-1" offset="0"/>
+  </joint>
+  <joint name="right_inner_finger_pad_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.0220203446692936 0.03242"/>
+    <parent link="right_inner_finger"/>
+    <child link="right_inner_finger_pad"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <joint name="left_outer_knuckle_joint" type="revolute">
     <origin rpy="0 0 3.141592653589793" xyz="0 -0.0306011 0.054904"/>
-    <parent link="left_gripper"/>
+    <parent link="left_gripper_base"/>
     <!-- changed with name change for base-->
     <child link="left_outer_knuckle"/>
     <axis xyz="1 0 0"/>
@@ -1312,12 +1365,12 @@
   <joint name="left_inner_knuckle_joint" type="revolute">
     <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
     <origin rpy="0 0 3.141592653589793" xyz="0 -0.0127 0.06142"/>
-    <parent link="left_gripper"/>
+    <parent link="left_gripper_base"/>
     <!-- changed with name change-->
     <child link="left_inner_knuckle"/>
     <axis xyz="1 0 0"/>
     <limit effort="1000" lower="0" upper="0.8757" velocity="2.0"/>
-    <mimic joint="finger_joint" multiplier="1" offset="0"/>
+    <mimic joint="left_outer_knuckle_joint" multiplier="1" offset="0"/>
   </joint>
   <joint name="left_inner_finger_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>
@@ -1325,51 +1378,12 @@
     <child link="left_inner_finger"/>
     <axis xyz="1 0 0"/>
     <limit effort="1000" lower="0" upper="0.8757" velocity="2.0"/>
-    <mimic joint="finger_joint" multiplier="-1" offset="0"/>
+    <mimic joint="left_outer_knuckle_joint" multiplier="-1" offset="0"/>
   </joint>
   <joint name="left_inner_finger_pad_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.0220203446692936 0.03242"/>
     <parent link="left_inner_finger"/>
     <child link="left_inner_finger_pad"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-  <joint name="right_outer_knuckle_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.0306011 0.054904"/>
-    <parent link="left_gripper"/>
-    <!-- changed with base name change -->
-    <child link="right_outer_knuckle"/>
-    <axis xyz="1 0 0"/>
-    <limit effort="1000" lower="0" upper="0.81" velocity="2.0"/>
-    <mimic joint="finger_joint" multiplier="1" offset="0"/>
-  </joint>
-  <joint name="right_outer_finger_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0.0315 -0.0041"/>
-    <parent link="right_outer_knuckle"/>
-    <child link="right_outer_finger"/>
-    <axis xyz="1 0 0"/>
-  </joint>
-  <joint name="right_inner_knuckle_joint" type="revolute">
-    <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
-    <origin rpy="0 0 0.0" xyz="0 0.0127 0.06142"/>
-    <parent link="left_gripper"/>
-    <!-- changed with name change-->
-    <child link="right_inner_knuckle"/>
-    <axis xyz="1 0 0"/>
-    <limit effort="1000" lower="0" upper="0.8757" velocity="2.0"/>
-    <mimic joint="finger_joint" multiplier="1" offset="0"/>
-  </joint>
-  <joint name="right_inner_finger_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0.0061 0.0471"/>
-    <parent link="right_outer_finger"/>
-    <child link="right_inner_finger"/>
-    <axis xyz="1 0 0"/>
-    <limit effort="1000" lower="0" upper="0.8757" velocity="2.0"/>
-    <mimic joint="finger_joint" multiplier="-1" offset="0"/>
-  </joint>
-  <joint name="right_inner_finger_pad_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 -0.0220203446692936 0.03242"/>
-    <parent link="right_inner_finger"/>
-    <child link="right_inner_finger_pad"/>
     <axis xyz="0 0 1"/>
   </joint>
   <transmission name="finger_joint_trans">

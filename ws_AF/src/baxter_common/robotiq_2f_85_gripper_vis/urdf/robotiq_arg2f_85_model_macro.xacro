@@ -139,11 +139,11 @@
     <joint name="${prefix}${fingerprefix}_inner_knuckle_joint" type="revolute">
       <!-- <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="${pi / 2 + .725} 0 ${(reflect - 1) * pi / 2}" /> -->
       <origin xyz="0 ${reflect * -0.0127} 0.06142" rpy="0 0 ${(1 + reflect) * pi / 2}"/>
-      <parent link="left_gripper" /> <!-- changed with name change-->
+      <parent link="left_gripper_base" /> <!-- changed with name change-->
       <child link="${prefix}${fingerprefix}_inner_knuckle" />
       <axis xyz="1 0 0" />
       <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}finger_joint" multiplier="1" offset="0" />
+      <mimic joint="${prefix}left_outer_knuckle_joint" multiplier="1" offset="0" />
     </joint>
   </xacro:macro>
 
@@ -154,7 +154,7 @@
       <child link="${prefix}${fingerprefix}_inner_finger" />
       <axis xyz="1 0 0" />
       <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}finger_joint" multiplier="-1" offset="0" />
+      <mimic joint="${prefix}left_outer_knuckle_joint" multiplier="-1" offset="0" />
     </joint>
   </xacro:macro>
 
@@ -170,10 +170,10 @@
   <!-- LOADS FROM THE OTHER FILE -->
   <xacro:include filename="$(find robotiq_2f_85_gripper_vis)/urdf/robotiq_arg2f.xacro" />
 
-  <xacro:macro name="finger_joint" params="prefix">
-    <joint name="${prefix}finger_joint" type="revolute">
+  <xacro:macro name="left_outer_knuckle_joint" params="prefix">
+    <joint name="${prefix}left_outer_knuckle_joint" type="revolute">
       <origin xyz="0 -0.0306011 0.054904" rpy="0 0 ${pi}"/>
-      <parent link="left_gripper" /> <!-- changed with name change for base-->
+      <parent link="left_gripper_base" /> <!-- changed with name change for base-->
       <child link="${prefix}left_outer_knuckle" />
       <axis xyz="1 0 0" />
       <limit lower="0" upper="0.8" velocity="2.0" effort="1000" />
@@ -184,22 +184,22 @@
   <xacro:macro name="right_outer_knuckle_joint" params="prefix">
     <joint name="${prefix}right_outer_knuckle_joint" type="revolute">
       <origin xyz="0 0.0306011 0.054904" rpy="0 0 0"/>
-      <parent link="left_gripper" /> <!-- changed with base name change -->
+      <parent link="left_gripper_base" /> <!-- changed with base name change -->
       <child link="${prefix}right_outer_knuckle" />
       <axis xyz="1 0 0" />
       <limit lower="0" upper="0.81" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}finger_joint" multiplier="1" offset="0" />
+      <mimic joint="${prefix}left_outer_knuckle_joint" multiplier="1" offset="0" />
     </joint>
     <xacro:finger_joints prefix="${prefix}" fingerprefix="right" reflect="-1.0"/>
   </xacro:macro>
 
   <!-- Initialization of all joints and links -->
-  <xacro:macro name="left_gripper" params="prefix">
+  <xacro:macro name="left_gripper_base" params="prefix">
     <xacro:robotiq_arg2f_base_link prefix="${prefix}"/>
     <xacro:finger_links prefix="${prefix}" fingerprefix="left" stroke="85"/>
     <xacro:finger_links prefix="${prefix}" fingerprefix="right" stroke="85"/>
-    <xacro:finger_joint prefix="${prefix}"/>
     <xacro:right_outer_knuckle_joint prefix="${prefix}"/>
+    <xacro:left_outer_knuckle_joint prefix="${prefix}"/>
     <xacro:robotiq_arg2f_transmission prefix="${prefix}"/>
   </xacro:macro>
 </robot>
