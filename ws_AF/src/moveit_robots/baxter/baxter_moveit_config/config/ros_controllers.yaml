@@ -1,0 +1,16 @@
+controller_list:
+  - name: /left_gripper_controller
+    action_ns: follow_joint_trajectory
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - left_outer_knuckle_joint
+    gains:
+    left_outer_knuckle_joint:
+      p: 40
+      d: 0
+      i: 0
+      i_clamp: 1
+
+      # left_outer_knuckle_joint: {p: 100.0, i: 0.01, d: 1.0}
+
+

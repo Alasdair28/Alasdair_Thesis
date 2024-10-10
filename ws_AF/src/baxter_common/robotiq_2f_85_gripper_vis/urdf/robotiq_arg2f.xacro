@@ -34,7 +34,7 @@
   </xacro:macro>
 
   <!-- Electric Gripper Tip joint -->
-  <joint name="left_endpoint" type="fixed">
+  <joint name="left_endpoint_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 ${0.130324+0.02}"/> <!-- Value added from all z values manually-->
     <parent link="left_gripper_base"/>
     <child link="left_gripper"/>

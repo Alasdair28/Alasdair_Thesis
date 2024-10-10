@@ -1,8 +1,0 @@
-prefix=/home/baxter/ros/barrettHand/install
-
-Name: perception_palm
-Description: Description of perception_palm
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime wam_msgs wam_srvs

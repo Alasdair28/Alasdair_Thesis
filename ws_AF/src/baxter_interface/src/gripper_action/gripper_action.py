@@ -52,7 +52,7 @@ class GripperActionServer(object):
         self._ns = 'robot/end_effector/' + self._ee + '/gripper_action'
         self._gripper = baxter_interface.Gripper(gripper, CHECK_VERSION)
         # Store Gripper Type
-        self._type = self._gripper.type()
+        self._type = self._gripper.type() # wont need as only have 2F-85
         if self._type == 'custom':
             msg = ("Stopping %s action server - %s gripper not capable of "
                    "gripper actions" % (self._gripper.name, self._type))

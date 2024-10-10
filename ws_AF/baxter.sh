@@ -24,8 +24,8 @@ baxter_hostname="011406P0001.local"
 # Set *Either* your computers ip address or hostname. Please note if using
 # your_hostname that this must be resolvable to Baxter.
 # your_ip="10.128.57.5"
-your_ip="10.128.62.185"
-# your_ip="10.128.59.205"
+# your_ip="10.128.28.153"
+your_ip="10.128.50.59"
 
 #your_hostname="baxter-ideacentre-Y900-34ISZ"
 

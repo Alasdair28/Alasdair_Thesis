@@ -1,8 +1,0 @@
-prefix=/home/baxter/ros/barrettHand/install
-
-Name: barrett_hand_node
-Description: Description of barrett_hand_node
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs roscpp rospy sensor_msgs std_srvs wam_msgs wam_srvs
