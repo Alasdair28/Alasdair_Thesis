@@ -282,8 +282,6 @@ left_hand:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(finger_joint)
-  longest_valid_segment_fraction: 0.005
 finger_1:
   planner_configs:
     - AnytimePathShortening
@@ -313,7 +311,7 @@ finger_1:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(finger_1_prox_joint,finger_1_med_joint)
+  projection_evaluator: joints(bh_j11_joint,bh_j12_joint)
   longest_valid_segment_fraction: 0.005
 finger_2:
   planner_configs:
@@ -344,7 +342,7 @@ finger_2:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(finger_2_prox_joint,finger_2_med_joint)
+  projection_evaluator: joints(bh_j21_joint,bh_j22_joint)
   longest_valid_segment_fraction: 0.005
 finger_3:
   planner_configs:
@@ -404,5 +402,5 @@ right_hand:
     - AITstar
     - ABITstar
     - BITstar
-  projection_evaluator: joints(finger_1_prox_joint,finger_1_med_joint)
+  projection_evaluator: joints(bh_j11_joint,bh_j12_joint)
   longest_valid_segment_fraction: 0.005

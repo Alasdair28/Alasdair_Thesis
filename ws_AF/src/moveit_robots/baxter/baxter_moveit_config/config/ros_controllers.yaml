@@ -1,16 +1,38 @@
-controller_list:
-  - name: /left_gripper_controller
-    action_ns: follow_joint_trajectory
-    type: effort_controllers/JointTrajectoryController
-    joints:
-      - left_outer_knuckle_joint
-    gains:
+/left_gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - left_outer_knuckle_joint
+  gains:
     left_outer_knuckle_joint:
-      p: 40
-      d: 0
-      i: 0
+      p: 100
+      d: 1
+      i: 1
       i_clamp: 1
-
-      # left_outer_knuckle_joint: {p: 100.0, i: 0.01, d: 1.0}
-
-
+barrett:
+  type: velocity_controllers/JointTrajectoryController
+  joints:
+    - bh_j11_joint
+    - bh_j12_joint
+    - bh_j22_joint
+    - bh_j32_joint
+  gains:
+    bh_j11_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    bh_j12_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    bh_j22_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    bh_j32_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

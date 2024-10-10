@@ -56,7 +56,7 @@ BH8-282 GRIPPER
 cd ~/Alasdair_Thesis/barrettHand/
 . devel/setup.bash
 # (may need to unplug and plug back in)
-roslaunch barrett_hand_control barrett_hand_control.launch
+roslaunch barrett_hand_node barrett_hand_node.launch
 *** new terminal
 source /opt/ros/noetic/setup.bash
 catkin_make
