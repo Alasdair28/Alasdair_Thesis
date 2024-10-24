@@ -1,8 +1,0 @@
-prefix=/home/baxter/Alasdair_Thesis/barrettHand/devel
-
-Name: bhand_controller
-Description: Description of bhand_controller
-Version: 0.1.2
-Cflags: -I/home/baxter/Alasdair_Thesis/barrettHand/devel/include
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Gripper Argument -->
-  <arg name="gripper" default="right" />
+  <arg name="gripper" default="left" />
 
   <!-- Start the Gripper Action Server -->
   <node name="rsdk_gripper_action_server" pkg="baxter_interface"
