@@ -16,7 +16,6 @@
   <param name="use_controller_manager" value="$(arg use_controller_manager)" />
   
   <!-- load controller_list and controller_manager_ns -->
-  <!-- <rosparam file="$(find baxter_moveit_config)/config/barrett_hand_control.yaml" command="load"/> -->
   <rosparam file="$(find baxter_moveit_config)/config/baxter_controllers.yaml"/>
 
   <!-- Added the below to test gripper control functionality -->

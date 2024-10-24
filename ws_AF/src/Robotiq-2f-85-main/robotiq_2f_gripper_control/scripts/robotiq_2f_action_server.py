@@ -231,7 +231,7 @@ if __name__ == "__main__":
     # Send and Request data from gripper and update joint state every `r`[Hz]
     r = rospy.Rate(rospy.get_param('~rate', 50 if not sim else 20))
     while not rospy.is_shutdown():
-        rospy.loginfo_throttle(5, 'Gripper action server operative')
+        # rospy.loginfo_throttle(5, 'Gripper action server operative') # Keeps printing if not commented
         gripper_driver.update_driver()
         r.sleep()
 

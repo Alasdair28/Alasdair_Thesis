@@ -1,15 +1,18 @@
-Changes made
+Useful for insight reads
+https://nu-msr.github.io/ros_notes/ros1/lecture13_rethink.html#orgead6e5c
+Actual ReThink Page but Baxter info has been wipped
+https://support.rethinkrobotics.com/support/home
 
-CHANGED TO REMOVE ATTEMPTS
-LOCATION: /home/baxter/Alasdair_Thesis/ws_AF/src/moveit_robots/baxter_moveit_config/baxter_moveit_config/config/kinematics.yaml
+Force Torque Sensors for position control
+https://github.com/eric565648/ati_sensor_ros_driver
+http://wiki.ros.org/ati_force_torque
 
-CHANGED: Commented out kinematics_solver_attempts: 3" for both left and right arm
-Sep 4th 
+Barrett Hand (Right)
+https://github.com/BarrettTechnology/libbarrett
+https://support.barrett.com/wiki/Hand/282
 
+ROBOTIQ (LEFT)
+https://robotiq.com/support/archive
+https://assets.robotiq.com/website-assets/support_archives/document_en/2-FINGER-85-140722_20171120.pdf?_ga=2.172324451.1956261620.1721807720-491489572.1716968122
+https://wiki.ros.org/robotiq/Tutorials/Control%20of%20a%202-Finger%20Gripper%20using%20the%20Modbus%20RTU%20protocol%20%28ros%20kinetic%20and%20newer%20releases%29
 
-CHANGED NAME
-baxter.srdf.xacro -> baxter.srdf
-This is so it could be loaded for the moveit setup assistant
-
-
-Recently changed this 'robotiq_arg2f_85' to 'left_gripper'

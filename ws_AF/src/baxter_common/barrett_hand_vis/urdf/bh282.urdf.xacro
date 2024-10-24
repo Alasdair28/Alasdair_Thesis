@@ -61,7 +61,7 @@
 		   <geometry>
 			  <mesh filename="package://barrett_hand_vis/meshes/knuckle_fixed.dae" />
 		   </geometry>
-		   <material name="Black"/>
+		   <color rgba="0.0 0.0 0.0 1.0"/>
 		 </visual>		
 		 <collision>
 		   <origin xyz="-0.04 0 0" rpy="0 0 0" />
@@ -92,7 +92,7 @@
 				<geometry>
 				  <mesh filename="package://barrett_hand_vis/meshes/finger.dae" />
 				</geometry>
-				<material name="Blue" />
+				<color rgba="0.0 0.0 0.8 1.0"/>
 			 </visual>		
 			 <collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
@@ -138,7 +138,7 @@
 			<geometry>
 			  <mesh filename="package://barrett_hand_vis/meshes/finger_tip.dae" />
 			</geometry>
-			<material name="Blue" />
+			<color rgba="0.0 0.0 0.8 1.0"/>
 		 </visual>		
 		 <collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -185,7 +185,7 @@
 			  <geometry>
 				 <mesh filename="package://barrett_hand_vis/meshes/knuckle.dae" />
 			  </geometry>
-			  <material name="Green" />
+			  <color rgba="0.0 0.8 0.0 1.0"/>
 			</visual>
 			<collision>
 			  <origin xyz="0 0 0" rpy="0 0 0" />
@@ -229,7 +229,7 @@
 				<geometry>
 				  <mesh filename="package://barrett_hand_vis/meshes/finger.dae" />
 				</geometry>
-				<material name="Blue" />
+				<color rgba="0.0 0.0 0.8 1.0"/>
 			 </visual>		
 			 <collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
@@ -275,7 +275,7 @@
 			<geometry>
 			  <mesh filename="package://barrett_hand_vis/meshes/finger_tip.dae" />
 			</geometry>
-			<material name="Blue" />
+			<color rgba="0.0 0.0 0.8 1.0"/>
 		 </visual>		
 		 <collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -323,7 +323,7 @@
 			  <geometry>
 				 <mesh filename="package://barrett_hand_vis/meshes/knuckle.dae" />
 			  </geometry>
-			  <material name="Green" />
+			  <color rgba="0.0 0.8 0.0 1.0"/>
 			</visual>
 			<collision>
 			  <origin xyz="0 0 0" rpy="0 0 0" />
@@ -368,7 +368,7 @@
 				<geometry>
 				  <mesh filename="package://barrett_hand_vis/meshes/finger.dae" />
 				</geometry>
-				<material name="Blue" />
+				<color rgba="0.0 0.0 0.8 1.0"/>
 			 </visual>		
 			 <collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
@@ -414,7 +414,7 @@
 			<geometry>
 			  <mesh filename="package://barrett_hand_vis/meshes/finger_tip.dae" />
 			</geometry>
-			<material name="Blue" />
+			<color rgba="0.0 0.0 0.8 1.0"/>
 		 </visual>		
 		 <collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />

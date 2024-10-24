@@ -42,10 +42,9 @@ rosrun baxter_examples xdisplay_image.py --file=/home/baxter/Alasdair_Thesis/ws_
 2F-85 Gripper
 *** new terminal
  . devel/setup.bash
+ . baxter.sh 
+ # . baxter.sh is important otheriwse MoveIt doesnt see it
 roslaunch robotiq_2f_gripper_control robotiq_action_server.launch
-*** new terminal
-. baxter.sh
-. devel/setup.bash
 
 # The rest of the gripper is controlled when you launch Moveit!
 # https://github.com/KevinGalassi/Robotiq-2f-85 for robotiq control
@@ -53,13 +52,11 @@ roslaunch robotiq_2f_gripper_control robotiq_action_server.launch
 
 BH8-282 GRIPPER
 *** new terminal
-cd ~/Alasdair_Thesis/barrettHand/
 . devel/setup.bash
-# (may need to unplug and plug back in)
+. baxter.sh
+# (may need to unplug and plug back in if an error shows)
 roslaunch barrett_hand_node barrett_hand_node.launch
 *** new terminal
-source /opt/ros/noetic/setup.bash
-catkin_make
 . baxter.sh
 . devel/setup.bash
 rosservice call /bhand/initialize
@@ -78,7 +75,6 @@ MOVEIT!
 . baxter.sh
 # rosrun baxter_tools enable_robot.py -e
 rosrun baxter_interface joint_trajectory_action_server.py
-
 *** new terminal
 . baxter.sh
 . devel/setup.bash
@@ -101,13 +97,20 @@ BE CAREFUL USING THESE TO NOT DELETE WORK DONE
 
 
 
-
-
 CURRENT WORK
 -------------------------------------------------------------------------------------------------------
 [ WARN] [1727244947.434636200]: The complete state of the robot is not yet known.  Missing left_outer_knuckle_joint, r_gripper_l_finger_joint
 - This warning is due to the joint_trajectory_action server not publishing info about these joints
 - get a slider bar working for the moveit joint 
+
+BH8-282 GRIPPER
+*** new terminal
+. devel/setup.bash
+# (may need to unplug and plug back in if an error shows)
+roslaunch barrett_node_server barrett_node_server.launch
+
+# this was made to make a a JointTrajectoryFollower
+# isnt fully working 
 
 
 *** new terminal

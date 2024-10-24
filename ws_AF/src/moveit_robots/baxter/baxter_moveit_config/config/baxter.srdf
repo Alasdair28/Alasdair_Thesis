@@ -23,6 +23,16 @@
         <joint name="finger_joint"/>
     </group>
     <group name="finger_1">
+        <joint name="bh_j11_joint"/>
+        <joint name="bh_j12_joint"/>
+    </group>
+    <group name="finger_2">
+        <joint name="bh_j22_joint"/>
+    </group>
+    <group name="finger_3">
+        <joint name="bh_j32_joint"/>
+    </group>
+    <!-- <group name="finger_1">
         <chain base_link="bh_base_link" tip_link="bh_finger_13_link"/>
     </group>
     <group name="finger_2">
@@ -30,7 +40,7 @@
     </group>
     <group name="finger_3">
         <chain base_link="bh_base_link" tip_link="bh_finger_33_link"/>
-    </group>
+    </group> -->
     <group name="right_hand">
         <group name="finger_1"/>
         <group name="finger_2"/>
@@ -85,6 +95,11 @@
     <passive_joint name="right_inner_knuckle_joint"/>
     <passive_joint name="right_inner_finger_joint"/>
     <passive_joint name="right_outer_knuckle_joint"/>
+    <passive_joint name="bh_j13_joint"/>
+    <passive_joint name="bh_j21_joint"/>
+    <passive_joint name="bh_j23_joint"/>
+    <passive_joint name="bh_j31_joint"/>
+    <passive_joint name="bh_j33_joint"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="bh_base_link" link2="bh_finger_11_link" reason="Adjacent"/>
     <disable_collisions link1="bh_base_link" link2="bh_finger_12_link" reason="Never"/>
@@ -860,4 +875,8 @@
     <disable_collisions link1="screen" link2="sonar_ring" reason="Never"/>
     <disable_collisions link1="screen" link2="torso" reason="Never"/>
     <disable_collisions link1="sonar_ring" link2="torso" reason="Adjacent"/>
+    <disable_collisions link1="right_upper_elbow" link2="right_upper_shoulder" reason="User"/>
+    <disable_collisions link1="left_upper_elbow" link2="left_upper_shoulder" reason="User"/>
+    <disable_collisions link1="left_upper_forearm_visual" link2="left_wrist" reason="User"/>
+    <disable_collisions link1="left_upper_elbow_visual" link2="left_upper_forearm" reason="User"/>
 </robot>
